@@ -12,6 +12,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
+        this.create(templst);
     }
 
     public double average() {
@@ -132,7 +133,7 @@ public class TemperatureSeriesAnalysis {
         System.arraycopy(templst, 0, this.templst, 0, templst.length);
     }
 
-    private void expand(){
+    private void create(){
             int n = this.templst.length * 2;
             double[] newtemplst = new double[n];
             System.arraycopy(this.templst, 0, newtemplst, 0,  n / 2);
