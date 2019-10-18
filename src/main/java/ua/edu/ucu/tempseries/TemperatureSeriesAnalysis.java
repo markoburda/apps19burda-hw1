@@ -27,10 +27,10 @@ public class TemperatureSeriesAnalysis {
         if (this.templst.length == 0) {
             throw new IllegalArgumentException("List is empty");
         }
-        avgnum = this.average();
+        average = this.average();
         double sum = 0.0;
         for (double i : this.templst) {
-            sum += Math.pow(i - avgnum);
+            sum += Math.pow(i - average);
         }
         double variance = sum / (this.templst.length - 1);
         return Math.sqrt(variance);
