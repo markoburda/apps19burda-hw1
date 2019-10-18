@@ -117,7 +117,10 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TempSummaryStatistics summaryStatistics() {
-        return null;
+        if(this.templst.length == 0){
+            throw new IllegalArgumentException();
+        }
+        return new TempSummaryStatistics(this);
     }
 
     private void assignlst(double[] templst){
