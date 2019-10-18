@@ -7,6 +7,12 @@ public class TemperatureSeriesAnalysis {
     private double[]  templst;
     private final double templim = -273;
 
+    private void isEmpty(){
+        if (this.templst.length == 0) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public TemperatureSeriesAnalysis() {
     }
 
@@ -16,9 +22,7 @@ public class TemperatureSeriesAnalysis {
 
     public double average() {
         int sum = 0;
-        if(this.templst.length == 0){
-            throw new IllegalArgumentException();
-        }
+        this.isEmpty();
         for (double i  : this.templst) {
             sum += i;
         }
@@ -27,9 +31,7 @@ public class TemperatureSeriesAnalysis {
 
     public double deviation() {
         double result = 0, avgnum;
-        if (this.templst.length == 0) {
-            throw new IllegalArgumentException();
-        }
+        this.isEmpty();
         avgnum = this.average();
         double l;
         l = this.templst.length;
@@ -42,9 +44,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double min() {
-        if(this.templst.length == 0){
-            throw new IllegalArgumentException();
-        }
+        this.isEmpty();
         double minnum = 1000;
         for(double i : this.templst){
             if (i < minnum){
@@ -65,9 +65,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToZero(double tempValue) {
-            if(templst.length == 0){
-                throw new IllegalArgumentException();
-            }
+            this.isEmpty();
             double closestnum = 1000;
             for(double i : templst){
                 if(Math.abs(i)  < closestnum){
@@ -78,9 +76,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToValue(double tempValue) {
-            if(templst.length == 0){
-                throw new IllegalArgumentException();
-            }
+            this.isEmpty();
             double closestnum = 10*8;
             for(double i : this.templst){
                 if(Math.abs(i - tempValue)  < closestnum){
@@ -117,9 +113,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TempSummaryStatistics summaryStatistics() {
-        if(this.templst.length == 0) {
-            throw new IllegalArgumentException();
-        }
+        this.isEmpty();
         return new TempSummaryStatistics(this);
     }
 
