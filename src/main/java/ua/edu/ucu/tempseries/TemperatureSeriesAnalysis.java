@@ -27,13 +27,13 @@ public class TemperatureSeriesAnalysis {
     public double deviation() {
         if(this.templst.length == 0){
             throw new IllegalArgumentException("List is empty");
-        double avg = average(this.templst);
+        avg = average();
         double sum = 0.0;
         for(double i : this.templst){
-            sum +=  (i  - avg)**2;;
+            sum +=  Math.pow(i  - avg);
         }
         double variance = sum/((double) this.templst.length- 1);
-        return variance**0.5;
+        return Math.sqrt(variance);
     }
 
     public double min() {
