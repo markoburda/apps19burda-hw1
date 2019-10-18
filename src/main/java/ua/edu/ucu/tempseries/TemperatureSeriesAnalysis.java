@@ -29,6 +29,7 @@ public class TemperatureSeriesAnalysis {
             throw new IllegalArgumentException("List is empty");
         }
         avgnum = this.average();
+        double l;
         l = this.templst.length;
         for (double i : this.templst) {
             result += (i-avgnum)*(i - avgnum);
