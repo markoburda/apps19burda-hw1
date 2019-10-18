@@ -10,7 +10,6 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
-        this.setTemperatureSeries(temperatureSeries);
     }
 
     public double average() {
@@ -27,10 +26,10 @@ public class TemperatureSeriesAnalysis {
     public double deviation() {
         if (this.templst.length == 0) {
             throw new IllegalArgumentException("List is empty");
-            avg = average();
+            avgnum = average();
             double sum = 0.0;
             for (double i : this.templst) {
-                sum += Math.pow(i - avg);
+                sum += Math.pow(i - avgnum);
             }
             double variance = sum / ((double) this.templst.length - 1);
             return Math.sqrt(variance);
@@ -60,12 +59,12 @@ public class TemperatureSeriesAnalysis {
         return maxnum;
     }
 
-    public double findTempClosestToZero() {
-            if(tempValue.length == 0){
+    public double findTempClosestToZero(double tempValue) {
+            if(templst.length == 0){
                 throw new IllegalArgumentException("List is empty");
             }
             int closestnum = 10*8;
-            for(int i : tempValue){
+            for(int i : templst){
                 if(Math.abs(i)  < closestnum){
                     closestnum = Math.abs(i);
                 }
@@ -98,9 +97,10 @@ public class TemperatureSeriesAnalysis {
 
     public double[] findTempsGreaterThen(double tempValue) {
             double[] morethan = new double[this.templst.length];
+            int n;
             for(double i : this.templst){
                 if(i > tempValue){
-                    morethan.add(i);
+                    morethan[n++] = i;
                 }
             }
             return morethan;
