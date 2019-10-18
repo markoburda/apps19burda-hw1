@@ -43,7 +43,7 @@ public class TemperatureSeriesAnalysis {
         if(this.templst.length == 0){
             throw new IllegalArgumentException("List is empty");
         }
-        int minnum = Math.pow(10, 8);
+        double minnum = 1000;
         for(double i : this.templst){
             if (i < minnum){
                 minnum = i;
