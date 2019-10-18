@@ -8,11 +8,10 @@ public class TemperatureSeriesAnalysis {
     private final double templim = -273;
 
     public TemperatureSeriesAnalysis() {
-
     }
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
-        this.create(templst);
+        this.expand(templst);
     }
 
     public double average() {
@@ -118,7 +117,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TempSummaryStatistics summaryStatistics() {
-        if(this.templst.length == 0){
+        if(this.templst.length == 0) {
             throw new IllegalArgumentException();
         }
         return new TempSummaryStatistics(this);
@@ -133,10 +132,10 @@ public class TemperatureSeriesAnalysis {
         System.arraycopy(templst, 0, this.templst, 0, templst.length);
     }
 
-    private void create(){
-            int n = this.templst.length * 2;
-            double[] newtemplst = new double[n];
-            System.arraycopy(this.templst, 0, newtemplst, 0,  n / 2);
+    private void expand(){
+            int n = this.templst.length;
+            double[] newtemplst = new double[n * 2];
+            System.arraycopy(this.templst, 0, newtemplst, 0,  n);
             assignlst(newtemplst);
     }
 
