@@ -93,7 +93,7 @@ public class TemperatureSeriesAnalysis {
         int cnt = 0;
         for (double i : this.templst) {
             if (i < tempValue) {
-                lessthanlst[index++] = i;
+                lessthanlst[cnt++] = i;
             }
         }
         double[] newtemplst = new double[cnt];
@@ -106,7 +106,7 @@ public class TemperatureSeriesAnalysis {
         int cnt = 0;
         for (double i : this.templst) {
             if (i > tempValue) {
-                morethanlst[index++] = i;
+                morethanlst[cnt++] = i;
             }
         }
         double[] newtemplst = new double[cnt];
@@ -118,13 +118,21 @@ public class TemperatureSeriesAnalysis {
         return null;
     }
 
+    private void assignlst(double[] templst){
+        for (double i : temperatureSeries)
+            if (i < templim) {
+                throw new InputMismatchException("Temperature < -273");
+            }
+        this.templst = new double[templst.length];
+        System.arraycopy(templst, 0, this.templst, 0, templst.length);
+    }
+
     private void expand(){
             int n = this.templst.length * 2;
-            double newtemplst = new double[n];
+            double[] newtemplst = new double[n];
             System.arraycopy(this.templst, 0, newtemplst, 0,  n / 2);
-            deftemplst(newtemplst);
-
-        }
+            assignlst(newtemplst);
+    }
 
     public int addTemps(double... temps) {
         return 0;
