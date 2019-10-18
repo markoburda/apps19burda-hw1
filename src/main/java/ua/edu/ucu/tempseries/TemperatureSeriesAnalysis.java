@@ -1,5 +1,5 @@
 package ua.edu.ucu.tempseries;
-import Math
+import Math;
 
 public class TemperatureSeriesAnalysis {
 
@@ -28,12 +28,12 @@ public class TemperatureSeriesAnalysis {
     public double deviation() {
         if(this.templst.length == 0){
             throw new IllegalArgumentException("List is empty");
-        avg = average(this.templst);
+        double avg = average(this.templst);
         double sum = 0.0;
         for(int i : this.templst){
             sum +=  (i  - avg)**2;;
         }
-        double variance = sum/double(this.templst.length) - 1;
+        double variance = sum/((double) this.templst.length- 1);
         return variance**0.5;
     }
 
