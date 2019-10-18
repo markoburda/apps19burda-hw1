@@ -17,7 +17,7 @@ public class TemperatureSeriesAnalysis {
     public double average() {
         int sum = 0;
         if(this.templst.length == 0){
-            throw new IllegalArgumentException("List is empty");
+            throw new IllegalArgumentException();
         }
         for (double i  : this.templst) {
             sum += i;
@@ -28,7 +28,7 @@ public class TemperatureSeriesAnalysis {
     public double deviation() {
         double result = 0, avgnum;
         if (this.templst.length == 0) {
-            throw new IllegalArgumentException("List is empty");
+            throw new IllegalArgumentException();
         }
         avgnum = this.average();
         double l;
@@ -43,7 +43,7 @@ public class TemperatureSeriesAnalysis {
 
     public double min() {
         if(this.templst.length == 0){
-            throw new IllegalArgumentException("List is empty");
+            throw new IllegalArgumentException();
         }
         double minnum = 1000;
         for(double i : this.templst){
@@ -66,7 +66,7 @@ public class TemperatureSeriesAnalysis {
 
     public double findTempClosestToZero(double tempValue) {
             if(templst.length == 0){
-                throw new IllegalArgumentException("List is empty");
+                throw new IllegalArgumentException();
             }
             double closestnum = 1000;
             for(double i : templst){
@@ -79,7 +79,7 @@ public class TemperatureSeriesAnalysis {
 
     public double findTempClosestToValue(double tempValue) {
             if(templst.length == 0){
-                throw new IllegalArgumentException("List is empty");
+                throw new IllegalArgumentException();
             }
             double closestnum = 10*8;
             for(double i : this.templst){
@@ -123,7 +123,7 @@ public class TemperatureSeriesAnalysis {
     private void assignlst(double[] templst){
         for (double i : templst)
             if (i < templim) {
-                throw new InputMismatchException("Temperature < -273");
+                throw new InputMismatchException();
             }
         this.templst = new double[templst.length];
         System.arraycopy(templst, 0, this.templst, 0, templst.length);
