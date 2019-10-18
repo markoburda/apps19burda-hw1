@@ -17,10 +17,10 @@ public class TemperatureSeriesAnalysis {
         if(this.templst.length == 0){
             throw new IllegalArgumentException("List is empty");
         }
-        for(double i : this.templst){
+        for (double i  : this.temperatureSeries) {
             sum += i;
         }
-        return sum/this.templst.length;
+        return sum / this.templst.length;
     }
 
     public double deviation() {
@@ -29,14 +29,16 @@ public class TemperatureSeriesAnalysis {
         }
         average = this.average();
         double sum = 0.0;
+        l = this.templst.length;
         for (double i : this.templst) {
-            sum += Math.pow(i - average);
+            sum += (i - average)*(i - average);
         }
-        double variance = sum / (this.templst.length - 1);
-        return Math.sqrt(variance);
+        variance = sum / l;
+        result = Math.sqrt(variance);
+        return result;
     }
 
-    public double min() {
+    public double min(){
         if(this.templst.length == 0){
             throw new IllegalArgumentException("List is empty");
         }
