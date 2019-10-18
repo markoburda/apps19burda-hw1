@@ -119,9 +119,9 @@ public class TemperatureSeriesAnalysis {
     }
 
     private void assignlst(double[] templst){
-        for (double i : temperatureSeries)
+        for (double i : templst)
             if (i < templim) {
-                throw new InputMismatchException("Temperature < -273");
+                throw InputMismatchException("Temperature < -273");
             }
         this.templst = new double[templst.length];
         System.arraycopy(templst, 0, this.templst, 0, templst.length);
