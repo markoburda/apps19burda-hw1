@@ -25,22 +25,23 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double deviation() {
-        if(this.templst.length == 0){
+        if (this.templst.length == 0) {
             throw new IllegalArgumentException("List is empty");
-        avg = average();
-        double sum = 0.0;
-        for(double i : this.templst){
-            sum +=  Math.pow(i  - avg);
+            avg = average();
+            double sum = 0.0;
+            for (double i : this.templst) {
+                sum += Math.pow(i - avg);
+            }
+            double variance = sum / ((double) this.templst.length - 1);
+            return Math.sqrt(variance);
         }
-        double variance = sum/((double) this.templst.length- 1);
-        return Math.sqrt(variance);
     }
 
     public double min() {
         if(this.templst.length == 0){
             throw new IllegalArgumentException("List is empty");
         }
-        int minnum = 10**8;
+        int minnum = Math.pow(10, 8);
         for(double i : this.templst){
             if (i < minnum){
                 minnum = i
