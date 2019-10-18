@@ -1,5 +1,4 @@
 package ua.edu.ucu.tempseries;
-import Math;
 
 public class TemperatureSeriesAnalysis {
 
