@@ -89,24 +89,29 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double[] findTempsLessThen(double tempValue) {
-            List lessthan = new ArrayList();
-            for(double i : this.templst){
-                if(i < tempValue){
-                    lessthan.add(i);
-                }
+        double[] lessthanlst = new double[this.templst.length];
+        int cnt = 0;
+        for (double i : this.templst) {
+            if (i < tempValue) {
+                lessthanlst[index++] = i;
             }
-            return lessthan;
+        }
+        double[] newtemplst = new double[cnt];
+        System.arraycopy(lessthanlst, 0, newtemplst, 0, cnt);
+        return newtemplst;
     }
 
     public double[] findTempsGreaterThen(double tempValue) {
-            double[] morethan = new double[this.templst.length];
-            int n;
-            for(double i : this.templst){
-                if(i > tempValue){
-                    morethan[n++] = i;
-                }
+        double[]  morethanlst = new double[this.templst.length];
+        int cnt = 0;
+        for (double i : this.templst) {
+            if (i > tempValue) {
+                morethanlst[index++] = i;
             }
-            return morethan;
+        }
+        double[] newtemplst = new double[cnt];
+        System.arraycopy(morethanlst, 0, newtemplst, 0, cnt);
+        return newtemplst;
     }
 
     public TempSummaryStatistics summaryStatistics() {
