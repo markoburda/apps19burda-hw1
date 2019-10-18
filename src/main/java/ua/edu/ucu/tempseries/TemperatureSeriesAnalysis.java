@@ -20,7 +20,7 @@ public class TemperatureSeriesAnalysis {
         for(double i : this.templst){
             sum += i;
         }
-        return sum/(double) this.templst.length;
+        return sum/this.templst.length;
     }
 
     public double deviation() {
@@ -32,7 +32,7 @@ public class TemperatureSeriesAnalysis {
         for (double i : this.templst) {
             sum += Math.pow(i - avgnum);
         }
-        double variance = sum / ((double) this.templst.length - 1);
+        double variance = sum / (this.templst.length - 1);
         return Math.sqrt(variance);
     }
 
