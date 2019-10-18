@@ -44,7 +44,7 @@ public class TemperatureSeriesAnalysis {
         int minnum = Math.pow(10, 8);
         for(double i : this.templst){
             if (i < minnum){
-                minnum = i
+                minnum = i;
             }
         }
         return minnum;
@@ -66,7 +66,7 @@ public class TemperatureSeriesAnalysis {
             }
             int closestnum = 10*8;
             for(int i : tempValue){
-                if Math.abs(i)  < closestnum{
+                if(Math.abs(i)  < closestnum){
                     closestnum = Math.abs(i);
                 }
             }
@@ -110,7 +110,7 @@ public class TemperatureSeriesAnalysis {
         return null;
     }
 
-    public expand(){
+    private void expand(){
             int n = this.templst.length * 2
             double newtemplst = new double[n];
             System.arraycopy(this.templst, 0, newtemplst, 0,  n / 2);
