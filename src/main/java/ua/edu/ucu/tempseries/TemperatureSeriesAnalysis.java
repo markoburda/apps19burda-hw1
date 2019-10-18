@@ -53,7 +53,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double max() {
-        int maxnum = 0;
+        double maxnum = 0;
         for(double i : this.templst){
             if (i > maxnum){
                 maxnum = i;
@@ -66,7 +66,7 @@ public class TemperatureSeriesAnalysis {
             if(templst.length == 0){
                 throw new IllegalArgumentException("List is empty");
             }
-            int closestnum = 10*8;
+            double closestnum = 1000;
             for(double i : templst){
                 if(Math.abs(i)  < closestnum){
                     closestnum = Math.abs(i);
