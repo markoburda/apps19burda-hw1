@@ -29,7 +29,7 @@ public class TemperatureSeriesAnalysis {
             throw new IllegalArgumentException("List is empty");
         double avg = average(this.templst);
         double sum = 0.0;
-        for(int i : this.templst){
+        for(double i : this.templst){
             sum +=  (i  - avg)**2;;
         }
         double variance = sum/((double) this.templst.length- 1);
@@ -41,7 +41,7 @@ public class TemperatureSeriesAnalysis {
             throw new IllegalArgumentException("List is empty");
         }
         int minnum = 10**8;
-        for(int i : this.templst){
+        for(double i : this.templst){
             if (i < minnum){
                 minnum = i
             }
@@ -77,7 +77,7 @@ public class TemperatureSeriesAnalysis {
                 throw new IllegalArgumentException("List is empty");
             }
             int closestnum = 10*8;
-            for(int i : this.templst){
+            for(double i : this.templst){
                 if(Math.abs(i - tempValue)  < closestnum){
                     closestnum = Math.abs(i);
                 }
@@ -87,7 +87,7 @@ public class TemperatureSeriesAnalysis {
 
     public double[] findTempsLessThen(double tempValue) {
             List lessthan = new ArrayList();
-            for(int i : this.templst){
+            for(double i : this.templst){
                 if(i < tempValue){
                     lessthan.add(i);
                 }
@@ -96,8 +96,8 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double[] findTempsGreaterThen(double tempValue) {
-            List morethan = new ArrayList();
-            for(int i : this.templst){
+            double[] morethan = new double[this.templst.length];
+            for(double i : this.templst){
                 if(i > tempValue){
                     morethan.add(i);
                 }
