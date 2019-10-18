@@ -35,7 +35,6 @@ public class TemperatureSeriesAnalysis {
         double variance = sum / ((double) this.templst.length - 1);
         return Math.sqrt(variance);
     }
-    }
 
     public double min() {
         if(this.templst.length == 0){
