@@ -35,7 +35,7 @@ public class TemperatureSeriesAnalysis {
             result += (i-avgnum)*(i - avgnum);
         }
         result /= l;
-        result = Math.sqrt(variance);
+        result = Math.sqrt(result);
         return result;
     }
 
