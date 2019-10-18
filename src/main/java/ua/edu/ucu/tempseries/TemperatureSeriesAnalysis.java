@@ -17,7 +17,7 @@ public class TemperatureSeriesAnalysis {
         if(this.templst.length == 0){
             throw new IllegalArgumentException("List is empty");
         }
-        for(int i : this.templst){
+        for(double i : this.templst){
             sum += i;
         }
         return sum/(double) this.templst.length;
@@ -26,14 +26,15 @@ public class TemperatureSeriesAnalysis {
     public double deviation() {
         if (this.templst.length == 0) {
             throw new IllegalArgumentException("List is empty");
-            avgnum = average();
-            double sum = 0.0;
-            for (double i : this.templst) {
-                sum += Math.pow(i - avgnum);
-            }
-            double variance = sum / ((double) this.templst.length - 1);
-            return Math.sqrt(variance);
         }
+        avgnum = this.average();
+        double sum = 0.0;
+        for (double i : this.templst) {
+            sum += Math.pow(i - avgnum);
+        }
+        double variance = sum / ((double) this.templst.length - 1);
+        return Math.sqrt(variance);
+    }
     }
 
     public double min() {
@@ -51,7 +52,7 @@ public class TemperatureSeriesAnalysis {
 
     public double max() {
         int maxnum = 0;
-        for(int i : this.templst){
+        for(double i : this.templst){
             if (i > maxnum){
                 maxnum = i;
             }
@@ -64,7 +65,7 @@ public class TemperatureSeriesAnalysis {
                 throw new IllegalArgumentException("List is empty");
             }
             int closestnum = 10*8;
-            for(int i : templst){
+            for(double i : templst){
                 if(Math.abs(i)  < closestnum){
                     closestnum = Math.abs(i);
                 }
@@ -76,7 +77,7 @@ public class TemperatureSeriesAnalysis {
             if(templst.length == 0){
                 throw new IllegalArgumentException("List is empty");
             }
-            int closestnum = 10*8;
+            double closestnum = 10*8;
             for(double i : this.templst){
                 if(Math.abs(i - tempValue)  < closestnum){
                     closestnum = Math.abs(i);
