@@ -111,7 +111,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     private void expand(){
-            int n = this.templst.length * 2
+            int n = this.templst.length * 2;
             double newtemplst = new double[n];
             System.arraycopy(this.templst, 0, newtemplst, 0,  n / 2);
             deftemplst(newtemplst);
